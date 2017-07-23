@@ -10,7 +10,7 @@ class Solution:
             i+=1
 
 
-    def twosum2(self,nums,target): #Pass
+    def twosum2(self,nums,target):      #Pass 1200ms
         for i, num in enumerate(nums):
             try:
                 j = nums.index(target-num)
@@ -21,9 +21,21 @@ class Solution:
             except ValueError:
                 continue
 
+    def twosum3(self, nums, target):      #Pass 32ms
+        """
+        Hash Map: dictionary {}
+        """
+        hash_map = {}
+        for i, val in enumerate(nums):
+            hash_map[val] = i
 
+        for i, val in enumerate(nums):
+            if target-val in hash_map:
+                j = hash_map[target-val]
+                if i != j:
+                    return [i, j]
 
 
 if __name__ == "__main__":
     Solution=Solution()
-    print Solution.twosum2([3,2,4],6)
+    print Solution.twosum3([3,2,4],6)
