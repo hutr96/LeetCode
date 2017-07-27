@@ -66,7 +66,53 @@ class Solution(object):         #Accepted   139ms
 
         return l3
 
-
+#better solution
+# class Solution:
+#     def addTwoNumbers(self, l1, l2):
+#         """
+#         Algorithm: Two pointers & math
+#         Two pointers for l1 and l2 respectively
+#         Math - carry for addition, in the form of new node
+#         :param l1: linked list head node
+#         :param l2: linked list head node
+#         :return: ListNode
+#         """
+#         result_head = ListNode(0)
+#
+#         cur1 = l1
+#         cur2 = l2
+#         cur = result_head
+#         while cur1 or cur2:
+#             cur.val = cur.val+self.addNode(cur1, cur2)
+#             if cur.val < 10:
+#                 if cur1 and cur1.next or cur2 and cur2.next:  # next node
+#                     cur.next = ListNode(0)
+#             else:
+#                 cur.val -= 10
+#                 cur.next = ListNode(1)
+#
+#             if cur1:
+#                 cur1 = cur1.next
+#             if cur2:
+#                 cur2 = cur2.next
+#             cur = cur.next
+#
+#         return result_head
+#
+#     def addNode(self, node1, node2):
+#         """
+#         Handles None situation
+#         :param node1: ListNode
+#         :param node2: ListNode
+#         :return: integer, summation
+#         """
+#         if not node1 and not node2:
+#             raise Exception("two nodes are None")
+#         if not node1:
+#             return node2.val
+#         if not node2:
+#             return node1.val
+#         return node1.val+node2.val
 
 
 
