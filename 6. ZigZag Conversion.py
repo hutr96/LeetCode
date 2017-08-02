@@ -39,11 +39,32 @@ class Solution(object):                 # Accepted 169ms
             res.append(dic[key])
         return ''.join(res)
 
+# Great Solution! by LeetCode@DazzlingHelios
+    def convert2(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1 or numRows >= len(s):
+            return s
 
+        L = [''] * numRows
+        index, step = 0, 1
+
+        for x in s:
+            L[index] += x
+            if index == 0:
+                step = 1
+            elif index == numRows -1:
+                step = -1
+            index += step
+        return ''.join(L)
 
 
 
 
 if __name__ == "__main__":
     S = Solution()
-    print S.convert("PAYPALISHIRING",4)
+    # print S.convert("PAYPALISHIRING",4)
+    print S.convert2("abcde",2)
